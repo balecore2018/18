@@ -12,21 +12,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrintManagementSystem_Шаповалов.Classes;
 
 namespace PrintManagementSystem_Шаповалов
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
+        public List<TypeOperation> typeOperationList = TypeOperation.AllTypeOpertation();
+        public List<Format> formatsList = Format.AllFormats();
         public MainWindow()
         {
             InitializeComponent();
+            LoadData();
         }
-
+        void LoadData()
+        {
+            foreach(TypeOperation items in typeOperationList) 
+                typeOperation.Items.Add(items.name);
+            foreach(Format item in formatsList)
+                formats.Items.Add(item.format);
+        }
+        
         private void textBoxCount_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            bool cont;
 
         }
 
